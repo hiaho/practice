@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic Web Page</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" >
+  <link href="style.css" rel="stylesheet">
+  <style type="text/css">
+    #shape{
+      height: 200px;
+      width: 200px;
+      border-radius: 50%; 
+      background-color:red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Reaction game</h1>
+  <p>Start time: <span id="startTime"></span>s</p>
+  <p>End time: <span id="endTime"></span>s</p>
+  <p>Timer: <span id="durationTime"></span>s</p>
+  <p id="test">Test apaaapa</p>
+
+
+<button id="button">Ok</button>
+
+<div id="shape">shape</div>
+
+  <script type="text/javascript">
+
+	function setColor() {
+
+	var range = "0123456789ABCDEF";
+	var color = "";
+
+		for(var i=0; i<6;i++){
+			color += range[Math.floor(Math.random()*range.length)];
+		}
+	
+	return "#"+color;
+	}
+
+  /*CLICK LISTENER*/
+  document.getElementById("button").onclick = function() {
+	
+	/*
+	document.getElementById("test").innerHTML = "hello";
+	console.log(setColor());
+	*/
+	document.getElementById("shape").style.backgroundColor = setColor();   
+}
+
+
+
+
+  </script>
+</body>
+</html>
