@@ -14,45 +14,36 @@
   </style>
 </head>
 <body>
-  <h1>Click</h1>
-  <!--
-  <p>Start time: <span id="startTime"></span>s</p>
-  <p>End time: <span id="endTime"></span>s</p>
-  <p>Timer: <span id="durationTime"></span>s</p>
-  <p id="test">Test apaaapa</p>
-  -->
+  
+<input type="text" id="tweetInput"></input>
+<button id="tweetButton">Tweet</button>
+<div id="demo"></div>  
 
-<button id="button">Change color</button>
+<script type="text/javascript">
 
-<div id="shape"></div>
-
-  <script type="text/javascript">
-
-	function setColor() {
-
-	var range = "0123456789ABCDEF";
-	var color = "";
-
-		for(var i=0; i<6;i++){
-			color += range[Math.floor(Math.random()*range.length)];
-		}
+	var tweets = [];
 	
-	return "#"+color;
+	var i=0; /*INTITIATION*/	
+	
+	while(i<tweets.length){
+		document.getElementById("demo").innerHTML += "<p>Tweet No." + (i+1) + " " + tweets[i] + "</p>";
+		/*(i+1) AS USER EXPERIENCE CALLIBRATION FOR THE NUMBER DISPLAY*/
+		console.log(tweets[i]);
+		i++; /*ITERATION*/
+		}	
+
+	document.getElementById("tweetButton").onclick = function(){
+		/*alert("Tweet successful");*/
+		var newTweet = document.getElementById("tweetInput").value;
+		tweets.push(newTweet);
+		document.getElementById("demo").innerHTML += "<p>Tweet No." + (i+1) + " " + newTweet + "</p>";
+		console.log(tweets[i++]);
+		
 	}
+	 
 
-  /*CLICK LISTENER*/
-  document.getElementById("button").onclick = function() {
-	
-	/*
-	document.getElementById("test").innerHTML = "hello";
-	console.log(setColor());
-	*/
-	document.getElementById("shape").style.backgroundColor = setColor();   
-}
+		
 
-
-
-
-  </script>
+</script>
 </body>
 </html>
