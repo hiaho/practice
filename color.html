@@ -5,27 +5,61 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" >
   <link href="style.css" rel="stylesheet">
   <style type="text/css">
-    #shape{
-      height: 200px;
-      width: 200px;
-      border-radius: 50%; 
-      background-color:red;
-    }
+	#shape{
+		height: 200px;
+		width: 200px;
+		border-radius: 50%; 
+		background-color:red;
+		position: absolute;
+    	}
+
+	#demo{	
+		color: white;
+		position: absolute;
+		top: 33%;
+		left: 33%;
+	}
   </style>
 </head>
 <body>
-  <h1>Reaction game</h1>
-  <p>Start time: <span id="startTime"></span>s</p>
-  <p>End time: <span id="endTime"></span>s</p>
-  <p>Timer: <span id="durationTime"></span>s</p>
-  <p id="test">Test apaaapa</p>
+  <h1 id="testing">Catch the circle!</h1>
 
+  <p>Start time: <span id="startStamp"></span></p>
+  <p>End time: <span id="endStamp"></span></p>
+  <h2>Timer: <span id="durationStamp"></span></h2>
+  <p><span id="highscore">Test apaaapa</span></p>
 
-<button id="button">Ok</button>
+<button id="button">Change color</button>
 
-<div id="shape">shape</div>
+<div id="shape"><p id="demo"></p></div>
 
   <script type="text/javascript">
+
+	function setWidth() {
+
+	var width = (Math.random()*100)+200;
+	return width+"px";
+	}
+
+	function setHeight() {
+
+	var height = (Math.random()*100)+200;
+	return height+"px";
+	}
+
+	function setTop() {
+
+	var val = (Math.random()*500);
+	val = Math.floor(val);
+	return val+"px";
+	}
+
+	function setLeft() {
+
+	var val = (Math.random()*1000);
+	val = Math.floor(val);
+	return val+"px";
+	}
 
 	function setColor() {
 
@@ -39,19 +73,61 @@
 	return "#"+color;
 	}
 
-  /*CLICK LISTENER*/
-  document.getElementById("button").onclick = function() {
+	function shapeAppears(){ 
+
+		/*document.getElementById("shape").style.width = setWidth();
+		document.getElementById("shape").style.height = setHeight(); 
+		PLEASE REVISIT THIS*/ 
+
+		var topVal = setTop(); 
+		var leftVal = setLeft(); 
+		
+
+		document.getElementById("shape").style.top = topVal; 
+		document.getElementById("shape").style.left = leftVal;
+		document.getElementById("shape").style.backgroundColor = setColor();  
+		document.getElementById("shape").style.display = "block";
+		document.getElementById("demo").innerHTML = "Top: " + topVal + "<br>Left: " + leftVal;  
+		
+	}
+
+  	/*WORK ON GETTING THE TIMER PLEASE*/ 
+	/*CLICK LISTENER*/
+ 		var start = (performance.now()/1000);
+
+  		document.getElementById("button").onclick = function() {
+		 
+		document.getElementById("shape").style.backgroundColor = setColor();  
+
+		}
+
+	document.getElementById("shape").onclick = function() {
+ 
+		document.getElementById("shape").style.display = "none";
+
+		const shapeWaits = setTimeout(shapeAppears, 500);
+
+			var end = (performance.now()/1000);
+			var duration = end-start;	
+
+			if (duration<history){
+				document.getElementById("highscore").innerHTML = duration;
+			}
 	
-	/*
-	document.getElementById("test").innerHTML = "hello";
-	console.log(setColor());
-	*/
-	document.getElementById("shape").style.backgroundColor = setColor();   
-}
+			document.getElementById("startStamp").innerHTML = start.toFixed(2)+"s";
+			document.getElementById("endStamp").innerHTML = end.toFixed(2)+"s";
+			document.getElementById("durationStamp").innerHTML = "You took " + duration.toFixed(2) + " seconds to catch me!";
+			start = (performance.now()/1000); /*i am here for checking through manual calculations*/
+
+			var history = duration;
+	 
+
+	}
 
 
-
-
+	
   </script>
 </body>
 </html>
+
+
