@@ -1,49 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Basic Web Page</title>
+  <title>Practice Page</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" >
   <link href="style.css" rel="stylesheet">
   <style type="text/css">
-    #shape{
-      height: 200px;
-      width: 200px;
-      border-radius: 50%; 
-      background-color:red;
-    }
+     
   </style>
 </head>
 <body>
   
-<input type="text" id="tweetInput"></input>
-<button id="tweetButton">Tweet</button>
-<div id="demo"></div>  
+<p><a href="prac_tweet.html">Tweet</a></p> 
 
 <script type="text/javascript">
-
-	var tweets = [];
-	
-	var i=0; /*INTITIATION*/	
-	
-	while(i<tweets.length){
-		document.getElementById("demo").innerHTML += "<p>Tweet No." + (i+1) + " " + tweets[i] + "</p>";
-		/*(i+1) AS USER EXPERIENCE CALLIBRATION FOR THE NUMBER DISPLAY*/
-		console.log(tweets[i]);
-		i++; /*ITERATION*/
-		}	
-
-	document.getElementById("tweetButton").onclick = function(){
-		/*alert("Tweet successful");*/
-		var newTweet = document.getElementById("tweetInput").value;
-		tweets.push(newTweet);
-		document.getElementById("demo").innerHTML += "<p>Tweet No." + (i+1) + " " + newTweet + "</p>";
-		console.log(tweets[i++]);
-		
-	}
-	 
-
-		
-
+ 
 </script>
 </body>
 </html>
