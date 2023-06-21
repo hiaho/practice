@@ -117,12 +117,12 @@ var n3char =   ["愛", "挨", "拶", "情", "諦", "飽", "握", "魔", "預", "
 				"逮", "陽", "陸", "宝", "唯", "叩", "縦", "谷", "玉", "黙", "駄", "純", "担", "域", "恵", "央", "貯", "接", "著", "愉",
 				"遂", "掴", "繋", "翼", "罪", "詰", "提", "抗", "程", "停", "敵", "哲", "徹", "党", "塔", "詞", "到", "徳", "測", "嫁", 
 				"票", "僚", "路", "独", "徴", "端", "虎", "努", "容", "仲", "流", "眺", "謎", "納", "鍋", "怠", "波", "涙", "悩", "縄", 
-				"匂", "抜", "濡", "根", "願", "鼠", "齢", "農", "ー", "喉", "伸", "述", "昇", "あ", "俳", "墓", "鹿", "博", "士", "床",
+				"匂", "抜", "濡", "根", "願", "鼠", "齢", "農", "ー", "喉", "伸", "述", "昇", "雇", "俳", "墓", "鹿", "博", "士", "床",
 				"履", "吐", "拍", "莫", "爆", "破", "旗", "肌", "裸", "畑", "罰", "離", "羽", "幅", "省", "面", "針", "範", "犯", "販", 
 				"較", "轢", "膝", "批", "評", "秘", "密", "微", "紐", "秒", "笛", "武", "含", "双", "再", "縁", "船", "満", "振", "勇",
 				"雰", "析", "塀", "均", "和", "冒", "豊", "富", "吠", "誇", "埃", "保", "仏", "炎", "頬", "褒", "濠", "迷", "幕", "孫", 
 				"貧", "又", "未", "街", "松", "豆", "魅", "胸", "芽", "令", "惑", "免", "燃", "標", "勿", "尤", "模", "貰", "賃", "秀",
-				"厄", "雇"
+				"厄", 
 				];
 
 var n2char = [	"遭", "扇", "揚", "挙", "憧", "圧", "縮", "宛", "暴", "脂", "編", "荒", "児", "佚", "斉", "旦", "井", "緯", "威", "煎", 
@@ -196,7 +196,7 @@ function displayLatestCharList(){
 
 	for(let i=0; i<n1char.length; i++)
 		charList.push(n1char[i]);
-
+/*
 	for(let i=0; i<beyondjlpt.length; i++)
 		charList.push(beyondjlpt[i]);
 
@@ -211,7 +211,7 @@ function displayLatestCharList(){
 
 	for(let i=0; i<charKatakana.length; i++)
 		charList.push(charKatakana[i]);
-
+*/
 		alert(
 		"N1 kanji = " + n1char.length + " " + 
 		"N2 kanji = " + n2char.length + " " +
@@ -273,10 +273,10 @@ function compareWithCharList(userInput){
 	//console.log("It contains " + uniqueInput.length + "unique characters");
 	console.log("It contains " + foundList.length + " unique characters from the given list");
 	console.log("They are: " + foundList);
-	console.log("Elements NOT found in the list: " + newList);
+	//console.log("Elements NOT found in the list: " + newList);
 	console.log("END OF NEW LIST");
-	for(let i=0; i<newList.length;i++)
-			document.getElementById("teks").innerHTML += "x" + newList[i]+ "x, ";
+	//for(let i=0; i<newList.length;i++)
+	//		document.getElementById("teks").innerHTML += "x" + newList[i]+ "x, ";
 	//for(let i=0; i<charList.length;i++)
 	//		document.getElementById("teks").innerHTML += "x" + charList[i]+ "x, ";
 }	
@@ -287,6 +287,10 @@ function getCurrentInput(){
 	
 	displayLatestCharList();
 	compareWithCharList(userInput);
+	document.getElementById("jumlah").innerHTML = (foundList.length + " kanji characters found. They are: ");
+	for(let i=0; i<foundList.length; i++){
+		document.getElementById("jumlahList").innerHTML += (foundList[i] + ", ");
+	}
 	clearInput();
 	
 
