@@ -110,9 +110,9 @@
 				document.getElementById("highscore").innerHTML = duration;
 			}
 	
-			document.getElementById("startStamp").innerHTML = start.toFixed(2)+"s";
-			document.getElementById("endStamp").innerHTML = end.toFixed(2)+"s";
-			document.getElementById("durationStamp").innerHTML = "You took " + duration.toFixed(2) + " seconds to catch me!";
+			document.getElementById("startStamp").innerHTML = start.toFixed(3)+"s";
+			document.getElementById("endStamp").innerHTML = end.toFixed(3)+"s";
+			document.getElementById("durationStamp").innerHTML = "You took " + duration.toFixed(3) + " seconds to catch me!";
 			start = (performance.now()/1000); /*i am here for checking through manual calculations*/
 
 			var history = duration;
